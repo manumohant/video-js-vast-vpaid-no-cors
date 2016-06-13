@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Description" content="Overcome CORS issue with videojs-vast-vpaid plugin" />
+<meta name="Author" content="Manu Mohan T">
+</head>
+<body>
+<h1>Overcome CORS issue with videojs-vast-vpaid plugin- Use the code in this <a href='https://github.com/manumohant/manumohant.github.io'>REPO</a></h1>
+<input type='text' placeholder='width' id='wd' />
+<input type='text' placeholder='height' id='ht' />
+<input type='text' placeholder='adtagURL' id='adurl' />
+<input type='button' value='play'  name='PLay' onclick='loadScript();'/>(**reload page after playing each ad)
+<div>
+    <script id="playerConf">
+       
+    function loadScript() {
+
+        var playerwidth = document.getElementById('wd').value;
+        var playerheight = document.getElementById('ht').value;
+        var ismuted = true;
+        var url = document.getElementById('adurl').value;
+        var script = document.createElement("script")
+        script.type = "text/javascript";
+        var css = document.createElement("link");
+        css.href = "consolidStyle.css";
+        css.rel = "stylesheet";
+        document.getElementsByTagName("head")[0].appendChild(css);
+        var qs = { "width": playerwidth, "height": playerheight, "ismuted": ismuted, "url": url };
+        script.id = "consolidJS";
+        script.src = "sole.js#" + JSON.stringify(qs);
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+    
+    
+    </script>
+</div>
+</body>
+</html>
